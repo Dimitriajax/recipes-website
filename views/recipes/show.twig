@@ -1,0 +1,47 @@
+{% extends "layouts/app.twig" %}
+
+{% block body %}
+	<div id="page-container">
+		{% if recipes|length > 0 %}
+			<table id="recipe-table">
+				{# {% for recipe in recipes %} #}
+				{# {{ dump(recipe) }} #}
+					<tr id="recipe-header"> <th align="left" class="recipe-name">{{ recipe.name }}</th>
+					<th align="left" class="recipe-name"></th>
+
+				</tr>
+				<tr class="recipe-info">
+					<td>
+						<span class="recipe-info-name">Type</span>
+					</td>
+					<td>
+						<span>{{ recipes.type }}</span>
+					</td>
+				</tr>
+				<tr class="recipe-info">
+					<td>
+						<span class="recipe-info-name">Level</span>
+					</td>
+					<td>
+						<span class={{recipes.level}}>{{ recipes.level }}</span>
+					</td>
+				</tr>
+				<tr class="recipe-info">
+					<td>
+						<span class="recipe-info-name">Kitchen</span>
+					</td>
+					<td>
+						<a href="/kitchen/show?id={{recipes.kitchen_id}}">
+
+							<span class="">
+								<pre>{{ dump(recipes.__get('kitchen')) }}</pre>
+							</span>
+						</a>
+					</td>
+				</tr>
+				{# {% endfor %} #}
+			</table>
+		{% endif %}
+
+	</div>
+{% endblock %}

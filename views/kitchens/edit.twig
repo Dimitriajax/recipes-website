@@ -1,0 +1,22 @@
+{% extends "layouts/app.twig" %}
+
+{% block body %}
+	<div id="page-container">
+		<div class="create-form-container">
+			<form action="" method="POST" class="edit-create-form">
+				<div class="form-content">
+					{% for kitchen in kitchens %}
+						<label class="recipe-label" for="recipe-name">Name</label>
+						<input type="text" name="kitchen-name" class="new-recipe-input" placeholder="New kitchen" required value="{{kitchen.name}}">
+						<label class="recipe-label" for="recipe-description">Description</label>
+						<textarea class="kitchen-description" name="kitchen-description" rows="5" cols="50">{{kitchen.description}}</textarea>
+					{% endfor %}
+				</div>
+				<div class="submit-recipe-container">
+					<a href="/kitchen">Back</a>
+					<input class="create-recipe-btn" type="submit" value="Edit">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>{% endblock %}

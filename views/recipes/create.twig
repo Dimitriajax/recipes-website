@@ -1,0 +1,30 @@
+{% extends "layouts/app.twig" %}
+
+{% block body %}
+	<div id="page-container">
+		<div class="create-form-container">
+			<form action="" method="POST" class="edit-create-form">
+				<div class="form-content">
+					<label class="recipe-label" for="recipe-name">Name</label>
+					<input type="text" name="recipe-name" class="new-recipe-input" placeholder="New recipe" required>
+					<label class="recipe-label" for="recipe-type">Type</label>
+					<select name="recipe-type" class="new-recipe-input" required>
+						{% for type in types %}
+							<option value="{{ type }}">{{ type }}</option>
+						{% endfor %}
+					</select>
+					<label class="recipe-label" for="recipe-level">Level</label>
+					<select name="recipe-level" class="new-recipe-input" required>
+						{% for level in levels %}
+							<option value="{{ level }}">{{ level }}</option>
+						{% endfor %}
+					</select>
+				</div>
+				<div class="submit-recipe-container">
+					<a href="/recipe">Back</a>
+					<input class="create-recipe-btn" type="submit" value="Create">
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

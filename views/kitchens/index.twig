@@ -1,0 +1,32 @@
+{% extends "layouts/app.twig" %}
+
+{% block body %}
+	<div id="page-container">
+		<div class="index-container">
+			{% if kitchens|length > 0 %}
+				<table id="recipe-table">
+					<tr id="recipe-header">
+						<th align="left" class="recipe-name">NAME</th>
+						<th align="left" class="recipe-level"></th>
+					</tr>
+					{% for kitchen in kitchens %}
+						<tr class="recipe-info">
+							<td>
+								<a href="/kitchen/show?id={{ kitchen .id }}">
+									<span class="recipe-info-name">{{ kitchen.name }}</span>
+								</a>
+							</td>
+							<td>
+								<span class="edit-btn">
+									<a href="/kitchen/edit?id={{ kitchen.id }}">Edit</a>
+								</span>
+							</td>
+						</tr>
+
+					{% endfor %}
+				</table>
+			{% endif %}
+			<a class="create-new-btn" href="/kitchen/create">Create Kitchen</a>
+		</div>
+	</div>
+{% endblock %}

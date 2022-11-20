@@ -1,0 +1,21 @@
+{
+    "name": "dimit/orm-101-b647903d-a031f020",
+    "require": {
+        "twig/twig": "^3.4"
+    },
+    "autoload": {
+        "files": [
+            "helpers.php",
+            "controllers/BaseController.php",
+            "controllers/RecipeController.php",
+            "controllers/KitchenController.php",
+            "include/rb.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Dimitriajax",
+            "email": "dimitri.brontsema@gmail.com"
+        }
+    ]
+}

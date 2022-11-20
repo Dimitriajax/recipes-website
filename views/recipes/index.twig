@@ -1,0 +1,38 @@
+{% extends "layouts/app.twig" %}
+
+{% block body %}
+	<div id="page-container">
+		<div class="index-container">
+			{% if recipes|length > 0 %}
+				<table id="recipe-table">
+					<tr id="recipe-header">
+						<th align="left" class="recipe-name">NAME</th>
+						<th align="left" class="recipe-type">TYPE</th>
+						<th align="left" class="recipe-level">LEVEL</th>
+						<th align="left" class="recipe-level"></th>
+					</tr>
+					{% for recipe in recipes %}
+						<tr class="recipe-info">
+							<td>
+								<a href="/recipe/show?id={{ recipe.id }}">
+									<span class="recipe-info-name">{{ recipe.name }}</span>
+								</a>
+							</td>
+							<td class=" recipe">{{ recipe.type }}</td>
+							<td>
+								<span class={{recipe.level}}>{{ recipe.level }}</span>
+							</td>
+							<td>
+								<span class="edit-btn">
+									<a href="/recipe/edit?id={{ recipe.id }}">Edit</a>
+								</span>
+							</td>
+						</tr>
+
+					{% endfor %}
+				</table>
+			{% endif %}
+			<a class="create-new-btn" href="/recipe/create">Create Recipe</a>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layouts/app.twig" %}
+
+{% block body %}
+	<div id="page-container">
+		{% if kitchens|length > 0 %}
+			<table id="recipe-table">
+				{% for kitchen in kitchens %}
+					<tr id="recipe-header">
+						<th align="left" class="recipe-name">{{ kitchen.name }}</th>
+						<th align="left" class="recipe-name"></th>
+					</tr>
+					<tr class="recipe-info">
+						<td>
+							<span class="recipe-info-name">Description</span>
+						</td>
+						<td>
+							{{ kitchen.description}}
+						</td>
+					</tr>
+
+				{% endfor %}
+			</table>
+		{% endif %}
+		{# <div class="recipe-cards-container">
+															{% for kitchen in kitchens %}
+																<div class="recipe-info-card-outer"></div>
+															{% endfor %}
+														</div> #}
+	</div>
+{% endblock %}
